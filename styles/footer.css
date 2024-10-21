@@ -1,0 +1,39 @@
+.footer-flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 10px 20px;
+  border: 2px green solid;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 0px;
+  background-color: rgb(213, 223, 213);
+}
+.footer-left-section {
+  flex: 1;
+  font-size: 20px;
+  margin-left: 20px;
+}
+.contacts-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: -10px;
+}
+.contacts-address {
+  margin-left: -10px;
+}
+.phone-mail-image {
+  width: 16px;
+}
+
+.footer-right-section {
+  flex: 2;
+}
+.bntu-map-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
