@@ -1,0 +1,17 @@
+.main-grid {
+  margin: 10px 20px;
+  margin-top: 100px;
+}
+
+.table-title-flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-title-flexbox div {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(14, 61, 14);
+}
+.speciality-name {
+}
