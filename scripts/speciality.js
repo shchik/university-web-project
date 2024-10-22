@@ -1,4 +1,5 @@
 import { Faculty, faculties, getFaculty } from "./data/faculty.js";
+import { abiturients } from "./data/abiturients.js";
 
 function renderSpecialityPage() {
   let specialitySummaryHTML = `
@@ -31,18 +32,7 @@ function renderSpecialityPage() {
           </div>
         </div>
         <div class="abiturients-class">
-          <div class="one-abiturient">
-            <div class="abiturients-name">
-              1) Щербаков Никита Владимирович
-            </div>
-            <div class="abiturients-score">328</div>
-          </div>
-          <div class="one-abiturient">
-            <div class="abiturients-name">
-              1) Щербаков Никита Владимирович
-            </div>
-            <div class="abiturients-score">328</div>
-          </div>
+          ${getAbiturients(speciality)}
         </div>
         <div class="places-count-class">${speciality.placesCount}</div>
       </div>
@@ -51,3 +41,20 @@ function renderSpecialityPage() {
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
 }
 renderSpecialityPage();
+
+function getAbiturients(speciality) {
+  let html = "";
+  abiturients.forEach((abiturient) => {
+    if (abiturient.specialityName === speciality.name) {
+      html += `
+        <div class="one-abiturient">
+          <div class="abiturients-name">
+            ${abiturient.id}) ${abiturient.firstname} ${abiturient.lastname} ${abiturient.patronymic}
+          </div>
+          <div class="abiturients-score">${abiturient.pointsNumber}</div>
+        </div>
+      `;
+    }
+  });
+  return html;
+}
