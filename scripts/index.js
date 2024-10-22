@@ -24,13 +24,20 @@ function renderIndexPage() {
           ${faculty.getAddress()}
         </div>
         <div class="main-grid-button">
-          <button class="go-to-link-button">Перейти -></button>
+          <button class="go-to-link-button js-go-to-link-button" data-faculty-id=${faculty.getId()}>Перейти -></button>
         </div>
         
       </div>
     `;
   });
   document.querySelector(".js-main-grid").innerHTML = htmlIndexSummary;
+
+  document.querySelectorAll(".js-go-to-link-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const { facultyId } = button.dataset;
+      window.location.href = `speciality.html?facultyId=${facultyId}`;
+    });
+  });
 }
 
 renderIndexPage();
