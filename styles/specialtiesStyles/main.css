@@ -1,17 +1,60 @@
-.main-grid {
-  margin: 10px 20px;
-  margin-top: 100px;
+.left-side-bar {
+  position: absolute;
+  left: 0px;
+  right: 80%;
+  top: 60px;
+  bottom: 0px;
+  background-color: lightgreen;
+}
+.right-side-bar {
+  position: absolute;
+  left: 80%;
+  right: 0;
+  top: 60px;
+  bottom: 0px;
+  background-color: lightgreen;
+  height: 100%;
 }
 
+.main-class {
+  margin: 100px 400px;
+  margin-top: 100px;
+  border: 1px black solid;
+}
 .table-title-flexbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px black solid;
+  margin: 10px;
 }
-.table-title-flexbox div {
+.table-title {
   font-size: 20px;
   font-weight: 500;
   color: rgb(14, 61, 14);
 }
-.speciality-name {
+.main-grid {
+  display: grid;
+  grid-template-columns: 200px 3fr 1fr;
+  text-align: center;
+  align-items: center;
+  margin: 15px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+.speciality-class {
+  border: 1px solid black;
+  margin: 5px;
+}
+.speciality-image {
+  width: 90%;
+}
+.one-abiturient {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 5px;
+}
+.places-count-class {
+  font-size: 22px;
+  font-weight: 700;
 }
