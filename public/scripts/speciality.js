@@ -1,15 +1,28 @@
 import { Faculty, faculties, getFaculty } from "./data/faculty.js";
 
 let abiturients = [];
-async function readFromJSON() {
-  const response = await fetch("../scripts/data/j_1.json");
-  const data = await response.json();
-  abiturients = data;
-  return Promise;
+
+async function sendRequest() {
+  await $.ajax({
+    url: "../../public/ajax.php",
+    dataType: "json",
+    type: "GET",
+    success: (response) => {
+      console.log("Hello");
+      Object.keys(response).forEach((item) => {
+        abiturients.push(response[item]);
+      });
+
+      $("#result").text(abiturients.join(", "));
+      //sendRequest(response);
+      console.log(abiturients);
+    },
+
+    error: (xhr, status, error) => {
+      console.error("Ошибка:", error);
+    },
+  });
 }
-readFromJSON().then(() => {
-  renderSpecialityPage();
-});
 
 function renderSpecialityPage() {
   let specialitySummaryHTML = `
@@ -62,19 +75,6 @@ function renderSpecialityPage() {
         renderSpecialityPage();
       }
     });
-
-  // document
-  //   .querySelectorAll(".js-main-class")
-  //   .forEach((button) => {
-  //     const abiturientId = button.dataset.abiturientId;
-  //     button.addEventListener("click", () => {
-  //       const filteredAbiturients = abiturients.filter((abiturient) => {
-  //         return abiturient.id != abiturientId;
-  //       });
-  //       abiturients = filteredAbiturients;
-  //       renderSpecialityPage();
-  //     });
-  //   });
 }
 
 function getAbiturients(speciality) {
@@ -98,3 +98,10 @@ function getAbiturients(speciality) {
   });
   return html;
 }
+
+async function go() {
+  await sendRequest();
+  renderSpecialityPage();
+}
+
+go();
