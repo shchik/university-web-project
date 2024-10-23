@@ -1,5 +1,15 @@
 import { Faculty, faculties, getFaculty } from "./data/faculty.js";
-import { abiturients } from "./data/abiturients.js";
+
+let abiturients = [];
+async function readFromJSON() {
+  const response = await fetch("../scripts/data/j_1.json");
+  const data = await response.json();
+  abiturients = data;
+  return Promise;
+}
+readFromJSON().then(() => {
+  renderSpecialityPage();
+});
 
 function renderSpecialityPage() {
   let specialitySummaryHTML = `
@@ -39,21 +49,51 @@ function renderSpecialityPage() {
     `;
   });
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
+
+  document
+    .querySelector(".js-main-class")
+    .addEventListener("click", (event) => {
+      if (event.target.classList.contains("js-delete-abiturient-button")) {
+        const { abiturientId } = event.target.dataset;
+        const filteredAbiturients = abiturients.filter((abiturient) => {
+          return abiturient.id.toString() !== abiturientId;
+        });
+        abiturients = filteredAbiturients;
+        renderSpecialityPage();
+      }
+    });
+
+  // document
+  //   .querySelectorAll(".js-main-class")
+  //   .forEach((button) => {
+  //     const abiturientId = button.dataset.abiturientId;
+  //     button.addEventListener("click", () => {
+  //       const filteredAbiturients = abiturients.filter((abiturient) => {
+  //         return abiturient.id != abiturientId;
+  //       });
+  //       abiturients = filteredAbiturients;
+  //       renderSpecialityPage();
+  //     });
+  //   });
 }
-renderSpecialityPage();
 
 function getAbiturients(speciality) {
   let html = "";
+  let count = 1;
   abiturients.forEach((abiturient) => {
     if (abiturient.specialityName === speciality.name) {
       html += `
         <div class="one-abiturient">
           <div class="abiturients-name">
-            ${abiturient.id}) ${abiturient.firstname} ${abiturient.lastname} ${abiturient.patronymic}
+            ${count}) ${abiturient.firstname} ${abiturient.lastname} ${abiturient.patronymic}
           </div>
           <div class="abiturients-score">${abiturient.pointsNumber}</div>
+          <div class=grid-button-class>
+            <button class="delete-abiturient-button js-delete-abiturient-button" data-abiturient-id=${abiturient.id}>X</button>
+          </div>  
         </div>
       `;
+      count++;
     }
   });
   return html;
