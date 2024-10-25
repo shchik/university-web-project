@@ -29,3 +29,10 @@
   margin: 10px 40px;
   font-size: 20px;
 }
+.header-sections a {
+  text-decoration: none;
+  color: black;
+}
+.header-sections a:hover {
+  text-decoration: underline;
+}
