@@ -1,45 +1,6 @@
-import { Faculty, faculties, getFaculty } from "./data/faculty.js";
+import { getFaculty } from "./data/faculty.js";
 import { abiturients, makeAbiturientsArray } from "./data/abiturients.js";
-
-export async function sendRequest() {
-  await $.ajax({
-    url: "../../public/ajax.php",
-    dataType: "json",
-    type: "GET",
-    success: (response) => {
-      Object.keys(response).forEach((item) => {
-        abiturients.push(response[item]);
-      });
-
-      $("#result").text(abiturients.join(", "));
-      //sendRequest(response);
-      console.log(abiturients);
-    },
-
-    error: (xhr, status, error) => {
-      console.error("Ошибка:", error);
-    },
-  });
-}
-
-async function deleteFromDb(id) {
-  await $.ajax({
-    url: "../../public/delete.php",
-    //dataType: "json",
-    data: { id: id },
-    type: "POST",
-    success: async (response) => {
-      abiturients = [];
-      await sendRequest();
-      renderSpecialityPage();
-    },
-
-    error: (xhr, status, error) => {
-      console.error("Ошибка:", error);
-    },
-  });
-  renderSpecialityPage();
-}
+import { sendRequest, deleteFromDb } from "./ajax.js";
 
 export function renderSpecialityPage() {
   let specialitySummaryHTML = `
@@ -79,7 +40,11 @@ export function renderSpecialityPage() {
     `;
   });
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
+  deleteButton();
+  makeAbiturientsArray();
+}
 
+function deleteButton() {
   document
     .querySelectorAll(".js-delete-abiturient-button")
     .forEach((button) => {
@@ -88,20 +53,6 @@ export function renderSpecialityPage() {
         deleteFromDb(abiturientId);
       });
     });
-
-  makeAbiturientsArray();
-  console.log(abiturients);
-  console.log(typeof abiturients);
-  console.log(typeof abiturients[0]);
-
-  // document
-  //   .querySelector(".js-main-class")
-  //   .addEventListener("click", (event) => {
-  //     if (event.target.classList.contains("js-delete-abiturient-button")) {
-  //       const { abiturientId } = event.target.dataset;
-  //       deleteFromDb(abiturientId);
-  //     }
-  //   });
 }
 
 function getAbiturients(speciality) {

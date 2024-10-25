@@ -19,8 +19,7 @@ class Abiturient {
 }
 
 export function makeAbiturientsArray() {
-  abiturients.map((abiturient) => {
+  abiturients = abiturients.map((abiturient) => {
     return new Abiturient(abiturient);
   });
-  console.log(abiturients);
 }

@@ -1,4 +1,4 @@
-import { sendRequest } from "./speciality.js";
+import { sendRequest } from "./ajax.js";
 import { abiturients } from "./data/abiturients.js";
 
 function addAbiturient() {
@@ -10,7 +10,7 @@ function addAbiturient() {
   const pointsNumber = document.querySelector("#pointsNumber").value;
 
   $.ajax({
-    url: "../../public/submit.php",
+    url: "../../public/phpScripts/submit.php",
     data: {
       firstname: firstname,
       lastname: lastname,
