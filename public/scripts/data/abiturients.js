@@ -1,39 +1,26 @@
-// class Abiturient {
-//   id;
-//   firstname;
-//   lastname;
-//   patronymic;
-//   pointsNumber;
-//   facultyName;
-//   specialityName;
+export let abiturients = [];
 
-//   constructor(abiturientInfo) {
-//     this.id = abiturientInfo.id;
-//     this.firstname = abiturientInfo.firstname;
-//     this.lastname = abiturientInfo.lastname;
-//     this.patronymic = abiturientInfo.patronymic;
-//     this.pointsNumber = abiturientInfo.pointsNumber;
-//     this.facultyName = abiturientInfo.facultyName;
-//     this.specialityName = abiturientInfo.specialityName;
-//   }
-// }
+class Abiturient {
+  firstname;
+  lastname;
+  patronymic;
+  faculty;
+  speciality;
+  pointsNumber;
 
-let abiturients = [];
-const mysql = require("mysql2");
+  constructor(abiturientExample) {
+    this.firstname = abiturientExample.firstname;
+    this.lastname = abiturientExample.lastname;
+    this.patronymic = abiturientExample.patronymic;
+    this.faculty = abiturientExample.faculty;
+    this.speciality = abiturientExample.speciality;
+    this.pointsNumber = abiturientExample.pointsNumber;
+  }
+}
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Shadyman6",
-  database: "usersdb",
-});
-
-connection.query("SELECT * FROM users", function (err, results, fields) {
-  abiturients = results;
-  console.log(abiturients);
-  const fs = require("fs");
-  fs.writeFileSync("./j_1.json", JSON.stringify(abiturients), {
-    encoding: "utf8",
-    flag: "w",
+export function makeAbiturientsArray() {
+  abiturients.map((abiturient) => {
+    return new Abiturient(abiturient);
   });
-});
+  console.log(abiturients);
+}

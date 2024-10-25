@@ -1,6 +1,5 @@
 import { Faculty, faculties, getFaculty } from "./data/faculty.js";
-
-let abiturients = [];
+import { abiturients, makeAbiturientsArray } from "./data/abiturients.js";
 
 export async function sendRequest() {
   await $.ajax({
@@ -89,6 +88,11 @@ export function renderSpecialityPage() {
         deleteFromDb(abiturientId);
       });
     });
+
+  makeAbiturientsArray();
+  console.log(abiturients);
+  console.log(typeof abiturients);
+  console.log(typeof abiturients[0]);
 
   // document
   //   .querySelector(".js-main-class")

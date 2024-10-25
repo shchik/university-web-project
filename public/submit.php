@@ -26,6 +26,7 @@ try {
     if ($stmt->rowCount() > 0) {
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(['status' => 'success', 'message' => 'Запись успешно удалена.']);
+        
     } else {
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(['status' => 'error', 'message' => 'Запись не найдена.']);
