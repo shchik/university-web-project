@@ -8,7 +8,6 @@ async function sendRequest() {
     dataType: "json",
     type: "GET",
     success: (response) => {
-      console.log("Hello");
       Object.keys(response).forEach((item) => {
         abiturients.push(response[item]);
       });
@@ -22,6 +21,25 @@ async function sendRequest() {
       console.error("Ошибка:", error);
     },
   });
+}
+
+async function deleteFromDb(id) {
+  await $.ajax({
+    url: "../../public/delete.php",
+    //dataType: "json",
+    data: { id: id },
+    type: "POST",
+    success: async (response) => {
+      abiturients = [];
+      await sendRequest();
+      renderSpecialityPage();
+    },
+
+    error: (xhr, status, error) => {
+      console.error("Ошибка:", error);
+    },
+  });
+  renderSpecialityPage();
 }
 
 function renderSpecialityPage() {
@@ -64,17 +82,22 @@ function renderSpecialityPage() {
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
 
   document
-    .querySelector(".js-main-class")
-    .addEventListener("click", (event) => {
-      if (event.target.classList.contains("js-delete-abiturient-button")) {
-        const { abiturientId } = event.target.dataset;
-        const filteredAbiturients = abiturients.filter((abiturient) => {
-          return abiturient.id.toString() !== abiturientId;
-        });
-        abiturients = filteredAbiturients;
-        renderSpecialityPage();
-      }
+    .querySelectorAll(".js-delete-abiturient-button")
+    .forEach((button) => {
+      const { abiturientId } = button.dataset;
+      button.addEventListener("click", () => {
+        deleteFromDb(abiturientId);
+      });
     });
+
+  // document
+  //   .querySelector(".js-main-class")
+  //   .addEventListener("click", (event) => {
+  //     if (event.target.classList.contains("js-delete-abiturient-button")) {
+  //       const { abiturientId } = event.target.dataset;
+  //       deleteFromDb(abiturientId);
+  //     }
+  //   });
 }
 
 function getAbiturients(speciality) {
@@ -96,6 +119,7 @@ function getAbiturients(speciality) {
       count++;
     }
   });
+
   return html;
 }
 
@@ -103,5 +127,4 @@ async function go() {
   await sendRequest();
   renderSpecialityPage();
 }
-
 go();
