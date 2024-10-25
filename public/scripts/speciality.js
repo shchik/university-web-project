@@ -2,7 +2,7 @@ import { Faculty, faculties, getFaculty } from "./data/faculty.js";
 
 let abiturients = [];
 
-async function sendRequest() {
+export async function sendRequest() {
   await $.ajax({
     url: "../../public/ajax.php",
     dataType: "json",
@@ -42,7 +42,7 @@ async function deleteFromDb(id) {
   renderSpecialityPage();
 }
 
-function renderSpecialityPage() {
+export function renderSpecialityPage() {
   let specialitySummaryHTML = `
     <caption>
       <div class="table-title-flexbox">

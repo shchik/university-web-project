@@ -1,7 +1,5 @@
 import { faculties, Faculty } from "./data/faculty.js";
 
-console.log(faculties);
-
 function renderIndexPage() {
   let htmlIndexSummary = "";
 

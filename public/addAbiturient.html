@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/addAbiturient.css/form.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Добавить пользователя</h1>
+      <form action="submit.php" method="POST">
+        <label for="firstname">Имя:</label>
+        <input type="text" id="firstname" name="firstname" required />
+
+        <label for="lastname">Фамилия:</label>
+        <input type="text" id="lastname" name="lastname" required />
+
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic" required />
+
+        <label for="faculty">Факультет:</label>
+        <input type="text" id="faculty" name="faculty" required />
+
+        <label for="speciality">Специальность:</label>
+        <input type="text" id="speciality" name="speciality" required />
+
+        <label for="pointsNumber">Количество баллов:</label>
+        <input type="number" id="pointsNumber" name="pointsNumber" required />
+
+        <button class="js-submit-button">Добавить пользователя</button>
+      </form>
+    </div>
+
+    <script src="scripts/addAbiturient.js" type="module"></script>
+  </body>
+</html>
