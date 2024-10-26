@@ -6,8 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px black solid;
-  margin: 10px;
+  margin: 10px 45px;
 }
 .table-title {
   font-size: 20px;
@@ -25,21 +24,30 @@
 }
 
 @media (max-width: 1000px) {
-  .main-grid {
+  .main-grid,
+  .table-title-flexbox {
     width: 70%;
   }
 }
 
 .speciality-class {
-  border: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+}
+.speciality-class div {
   margin: 5px;
 }
 .speciality-image {
-  width: 85%;
+  width: 100%;
+}
+.abiturients-class {
+  height: 100%;
+  border-right: 1px solid black;
 }
 .one-abiturient {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 10px 5px;
 }
 .abiturients-name {
@@ -51,16 +59,17 @@
 .places-count-class {
   font-size: 22px;
   font-weight: 700;
+  text-align: center;
 }
 .grid-button-class {
   width: 100px;
 }
 .delete-abiturient-button {
-  padding: 5px 10px;
+  height: 20px;
   color: red;
   background-color: white;
   border: 1px solid gray;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: background-color 0.5s, color 0.4s;
 }
 .delete-abiturient-button:hover {

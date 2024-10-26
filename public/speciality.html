@@ -35,7 +35,65 @@
     </header>
 
     <main>
-      <div class="main-class js-main-class"></div>
+      <div class="left-sidebar"></div>
+      <div class="right-sidebar"></div>
+
+      <div class="main-class js-main-class">
+        <caption>
+          <div class="table-title-flexbox">
+            <div class="table-title">Специальность</div>
+            <div class="table-title">Абитуриенты</div>
+            <div class="table-title">Количество мест</div>
+          </div>
+        </caption>
+        <div class="main-grid">
+          <div class="speciality-class">
+            <div>
+              <div>
+                <img
+                  src="images/background-image2.jpg"
+                  class="speciality-image"
+                />
+              </div>
+              <div>ИСИТ</div>
+              <div>
+                Информационные системы в обработке и представлении информации
+              </div>
+            </div>
+          </div>
+          <div class="abiturients-class">
+            <div class="one-abiturient">
+              <div class="abiturients-name">
+                1) Щербаков Никита Владимирович
+              </div>
+              <div class="abiturients-score">328</div>
+              <div class="grid-button-class">
+                <button
+                  class="delete-abiturient-button js-delete-abiturient-button"
+                  data-abiturient-id="${abiturient.id}"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+            <div class="one-abiturient">
+              <div class="abiturients-name">
+                1) Щербаков Никита Владимирович
+              </div>
+              <div class="abiturients-score">328</div>
+              <div class="grid-button-class">
+                <button
+                  class="delete-abiturient-button js-delete-abiturient-button"
+                  data-abiturient-id="${abiturient.id}"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="places-count-class">30</div>
+        </div>
+      </div>
     </main>
 
     <script src="scripts/speciality.js" type="module"></script>
