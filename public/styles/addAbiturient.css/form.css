@@ -6,15 +6,18 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   background: url("../../images/background-image2.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
 }
-
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 .container {
   width: 820px;
   border: 2px solid rgb(255, 255, 255, 0.2);

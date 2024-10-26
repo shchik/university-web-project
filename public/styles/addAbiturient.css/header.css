@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  background-color: transparent;
+}
+.header-left-section {
+  flex: 1;
+  position: absolute;
+}
+.header-right-section {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 0px;
+}
+.logo-image {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+}
+.header-sections {
+  margin: 10px 40px;
+  font-size: 20px;
+}
+
+.header-sections a {
+  text-decoration: none;
+  font-size: 24px;
+  color: rgb(10, 41, 10);
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+.header-sections a:hover {
+  text-decoration: underline;
+}
