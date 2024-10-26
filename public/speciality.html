@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/specialtiesStyles/header.css" />
     <link rel="stylesheet" href="styles/specialtiesStyles/main.css" />
     <link rel="stylesheet" href="styles/specialtiesStyles/general.css" />
+    <link rel="stylesheet" href="styles/sidebar/sidebar.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,8 +36,62 @@
     </header>
 
     <main>
-      <div class="left-sidebar"></div>
-      <div class="right-sidebar"></div>
+      <div class="out">
+        <div class="side js-side">
+          <div class="side-inner">
+            <!-- header -->
+            <div class="side-header">
+              <a class="side-logo">
+                <img class="side-logo-image" src="images/BNTU-logo.gif" />
+                <div class="side-logo-text">BNTU</div>
+              </a>
+
+              <button class="side-toggle js-side-toggle">
+                <img src="images/icons/menu.png" />
+              </button>
+            </div>
+            <!-- header -->
+
+            <nav class="nav">
+              <ul class="nav-list">
+                <li class="nav-list-item">
+                  <a href="index.html" class="nav-list-link">
+                    <img
+                      src="images/icons/home.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Главная</span>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="addAbiturient.html" class="nav-list-link">
+                    <img
+                      src="images/icons/add.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Добавить абитуриента</span>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="speciality.html" class="nav-list-link">
+                    <img
+                      src="images/icons/contacts.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Контакты</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="side-footer">
+              <a href="" class="logout-link">
+                <img class="logout-link-icon" src="images/icons/logout.png" />
+                <span class="logout-link-text">logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="main-class js-main-class">
         <caption>
@@ -96,6 +151,7 @@
       </div>
     </main>
 
+    <script src="scripts/sidebar.js"></script>
     <script src="scripts/speciality.js" type="module"></script>
   </body>
 </html>

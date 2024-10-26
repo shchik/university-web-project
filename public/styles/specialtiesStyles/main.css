@@ -1,6 +1,16 @@
 .main-class {
   margin: 100px;
   border: 1px black solid;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 40px 30px;
+  width: calc(100% - 400px);
+  transition: width 0.3s;
+
+  &.wide {
+    width: calc(100% - 250px);
+  }
 }
 .table-title-flexbox {
   display: flex;

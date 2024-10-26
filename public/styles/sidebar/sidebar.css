@@ -1,0 +1,237 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dark: #19262e;
+  --light: #f1effa;
+  --side-width: 280px;
+  --side-width-mini: 120px;
+}
+
+.out {
+  position: relative;
+  height: 100%;
+}
+.side {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--side-width);
+  color: var(--dark);
+  padding-right: 20px;
+  transition: width 0.25s linear;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+.side-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  min-height: 600px;
+  padding: 30px 20px;
+}
+
+.side-header {
+  position: relative;
+  margin-bottom: 40px;
+}
+.side-logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.11s linear;
+}
+
+.side-logo-image {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.side-logo-text {
+  font-size: 22px;
+  font-weight: 500;
+  margin-left: 12px;
+}
+.side-toggle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
+  border-radius: 12px;
+  transition: all 0.1s linear;
+}
+.side-toggle:hover {
+  background-color: var(--light);
+}
+.side-toggle img {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav-list-item {
+  list-style: none;
+  margin-bottom: 6px;
+}
+.nav-list-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  border-radius: 24px;
+  position: relative;
+  transition: all 0.25s linear;
+}
+
+.nav-list-link:hover,
+.nav-list-link:active {
+  color: white;
+
+  &::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &::after {
+    opacity: 1;
+    transform: translate(-20px, -50%);
+  }
+}
+
+.nav-list-link:active {
+  &::before {
+    width: calc(100% + 35px);
+  }
+
+  &::after {
+    transform: translate(24px, -50%);
+  }
+}
+
+.nav-list-link::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(9, 80, 9);
+  position: absolute;
+  opacity: 0;
+  transform-origin: left;
+  transition: all 0.15s linear;
+  border-radius: 12px;
+  transform: translateX(-20px);
+}
+.nav-list-link::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-image: url("../../images/icons/arrow.png");
+  background: contain no-repeat;
+  background-size: 15px;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  opacity: 0;
+  transform: translate(-40px, -50%);
+  transition: all 0.25s ease-in;
+}
+.nav-list-link-icon {
+  width: 24px;
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-list-link-text {
+  font-size: 18px;
+  margin-left: 18px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.25s linear;
+}
+.logout-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 18px;
+  transition: background-color 0.1s linear;
+}
+.logout-link-icon {
+  width: 18px;
+  flex-shrink: 0;
+}
+.logout-link-text {
+  color: inherit;
+  margin-left: 12px;
+}
+.side-footer {
+  text-align: start;
+  padding: 10px 0px;
+  margin: auto 0 0 0;
+}
+.logout-link:hover,
+:active {
+  background-color: var(--light);
+}
+
+.minify {
+  width: var(--side-width-mini);
+
+  .side-logo {
+    transform: translateX(-40px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .side-toggle {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav-list-link::after {
+    display: none;
+  }
+  .nav-list-link-text {
+    opacity: 0;
+    transform: translateX(-60px);
+    visibility: hidden;
+    transition: all 0.25s linear;
+  }
+
+  .logout-link-text {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
