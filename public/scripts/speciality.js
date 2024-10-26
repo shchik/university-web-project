@@ -40,8 +40,10 @@ export function renderSpecialityPage() {
     `;
   });
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
-  deleteButton();
   makeAbiturientsArray();
+  console.log(abiturients);
+  deleteButton();
+  editButton();
 }
 
 function deleteButton() {
@@ -55,6 +57,15 @@ function deleteButton() {
     });
 }
 
+function editButton() {
+  document.querySelectorAll(".js-edit-abiturient-button").forEach((button) => {
+    const { abiturientId } = button.dataset;
+    button.addEventListener("click", () => {
+      window.location.href = `addAbiturient.html?abiturientId=${abiturientId}`;
+    });
+  });
+}
+
 function getAbiturients(speciality) {
   let html = "";
   let count = 1;
@@ -66,9 +77,19 @@ function getAbiturients(speciality) {
             ${count}) ${abiturient.firstname} ${abiturient.lastname} ${abiturient.patronymic}
           </div>
           <div class="abiturients-score">${abiturient.pointsNumber}</div>
+          <div class="grid-button-class">
+            <button
+              class="edit-abiturient-button js-edit-abiturient-button"
+              data-abiturient-id="${abiturient.id}"
+              title="edit"
+            >
+              <img src="images/icons/edit.png" class="edit-image" />
+            </button>
+          </div>  
           <div class=grid-button-class>
             <button class="delete-abiturient-button js-delete-abiturient-button" data-abiturient-id=${abiturient.id}>X</button>
-          </div>  
+          </div>
+          
         </div>
       `;
       count++;

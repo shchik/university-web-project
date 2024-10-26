@@ -202,10 +202,6 @@
   padding: 10px 0px;
   margin: auto 0 0 0;
 }
-.logout-link:hover,
-:active {
-  background-color: var(--light);
-}
 
 .minify {
   width: var(--side-width-mini);

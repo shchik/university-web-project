@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-size: 14px;
   font-family: Roboto;
-  height: 3000px;
   position: relative;
+  min-height: 1020px;
+  height: auto;
 }

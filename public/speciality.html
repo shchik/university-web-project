@@ -18,24 +18,7 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="header" style="margin-top: -100px">
-        <div class="header-left-section">
-          <a href="ingex.html">
-            <img src="images/BNTU-logo.gif" class="logo-image" />
-          </a>
-        </div>
-        <div class="header-right-section">
-          <div class="header-sections">
-            <a href="addAbiturient.html"> Добавить абитуриента </a>
-          </div>
-          <div class="header-sections">Главная</div>
-          <div class="header-sections">Контакты</div>
-        </div>
-      </div>
-    </header>
-
-    <main>
+    <sidebar>
       <div class="out">
         <div class="side js-side">
           <div class="side-inner">
@@ -92,15 +75,9 @@
           </div>
         </div>
       </div>
-
+    </sidebar>
+    <main>
       <div class="main-class js-main-class">
-        <caption>
-          <div class="table-title-flexbox">
-            <div class="table-title">Специальность</div>
-            <div class="table-title">Абитуриенты</div>
-            <div class="table-title">Количество мест</div>
-          </div>
-        </caption>
         <div class="main-grid">
           <div class="speciality-class">
             <div>
@@ -138,8 +115,18 @@
               <div class="abiturients-score">328</div>
               <div class="grid-button-class">
                 <button
+                  class="edit-abiturient-button js-edit-abiturient-button"
+                  data-abiturient-id="${abiturient.id}"
+                  title="edit"
+                >
+                  <img src="images/icons/edit.png" class="edit-image" />
+                </button>
+              </div>
+              <div class="grid-button-class">
+                <button
                   class="delete-abiturient-button js-delete-abiturient-button"
                   data-abiturient-id="${abiturient.id}"
+                  title="close"
                 >
                   X
                 </button>

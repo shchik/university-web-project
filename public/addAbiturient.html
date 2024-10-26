@@ -4,27 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/addAbiturient/form.css" />
-    <link rel="stylesheet" href="styles/addAbiturient/header.css" />
+    <link rel="stylesheet" href="styles/sidebar/sidebar.css" />
     <script src="./scripts/jquery-3.7.1.min.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <div class="header-left-section">
-          <a href="index.html">
-            <img src="images/BNTU-logo.gif" class="logo-image" />
-          </a>
-        </div>
-        <div class="header-right-section">
-          <div class="header-sections">
-            <a href="addAbiturient.html"> Добавить абитуриента </a>
+    <sidebar>
+      <div class="out">
+        <div class="side js-side">
+          <div class="side-inner">
+            <!-- header -->
+            <div class="side-header">
+              <a class="side-logo">
+                <img class="side-logo-image" src="images/BNTU-logo.gif" />
+                <div class="side-logo-text">BNTU</div>
+              </a>
+
+              <button class="side-toggle js-side-toggle">
+                <img src="images/icons/menu.png" />
+              </button>
+            </div>
+            <!-- header -->
+
+            <nav class="nav">
+              <ul class="nav-list">
+                <li class="nav-list-item">
+                  <a href="index.html" class="nav-list-link">
+                    <img
+                      src="images/icons/home.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Главная</span>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="addAbiturient.html" class="nav-list-link">
+                    <img
+                      src="images/icons/add.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Добавить абитуриента</span>
+                  </a>
+                </li>
+                <li class="nav-list-item">
+                  <a href="speciality.html" class="nav-list-link">
+                    <img
+                      src="images/icons/contacts.png"
+                      class="nav-list-link-icon"
+                    />
+                    <span class="nav-list-link-text">Контакты</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="side-footer">
+              <a href="" class="logout-link">
+                <img class="logout-link-icon" src="images/icons/logout.png" />
+                <span class="logout-link-text">logout</span>
+              </a>
+            </div>
           </div>
-          <div class="header-sections">Факультеты</div>
-          <div class="header-sections">Контакты</div>
         </div>
       </div>
-    </header>
+    </sidebar>
 
     <div class="body-container">
       <div class="container">
@@ -86,13 +128,19 @@
               required
             />
           </div>
-          <button type="submit" class="submit-button js-submit-button">
-            Добавить пользователя
-          </button>
+          <div class="buttons-container">
+            <button type="submit" class="submit-button js-submit-button">
+              Добавить пользователя
+            </button>
+            <button class="submit-button js-edit-button">
+              Изменить пользователя
+            </button>
+          </div>
         </form>
       </div>
     </div>
 
     <script src="scripts/addAbiturient.js" type="module"></script>
+    <script src="scripts/sidebar.js"></script>
   </body>
 </html>
