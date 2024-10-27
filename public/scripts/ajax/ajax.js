@@ -1,3 +1,4 @@
+import { error } from "console";
 import { abiturients } from "../data/abiturients.js";
 import { renderSpecialityPage } from "../speciality.js";
 
@@ -63,6 +64,10 @@ export function addAbiturient() {
     success: (response) => {
       sendRequest();
       window.location.href = "index.html";
+    },
+    error: (xhr, status, error) => {
+      console.error("Ошибка AJAX:", status, error);
+      alert("Произошла ошибка при отправке данных.");
     },
   });
 }
