@@ -58,6 +58,23 @@
 .abiturients-class {
   height: 100%;
   border-right: 1px solid black;
+  overflow: auto;
+  height: 240px;
+}
+.abiturients-class::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f9f9fd;
+}
+
+.abiturients-class::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #0cca9a;
+}
+
+.abiturients-class::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
 }
 .one-abiturient {
   display: flex;

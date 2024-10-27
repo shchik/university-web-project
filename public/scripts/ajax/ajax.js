@@ -10,6 +10,7 @@ export async function sendRequest() {
       Object.keys(response).forEach((item) => {
         abiturients.push(response[item]);
       });
+      abiturients.sort((a, b) => (a.pointsNumber < b.pointsNumber ? 1 : -1));
 
       $("#result").text(abiturients.join(", "));
     },
