@@ -1,6 +1,6 @@
 import { getFaculty } from "./data/faculty.js";
 import { abiturients, makeAbiturientsArray } from "./data/abiturients.js";
-import { sendRequest, deleteFromDb } from "./ajax.js";
+import { sendRequest, deleteFromDb } from "./ajax/ajax.js";
 
 export function renderSpecialityPage() {
   let specialitySummaryHTML = `
@@ -41,7 +41,6 @@ export function renderSpecialityPage() {
   });
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
   makeAbiturientsArray();
-  console.log(abiturients);
   deleteButton();
   editButton();
 }

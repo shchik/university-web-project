@@ -24,7 +24,6 @@ export function makeAbiturientsArray() {
   abiturients = abiturients.map((abiturient) => {
     return new Abiturient(abiturient);
   });
-  console.log(abiturients);
 }
 
 export function getAbiturient(abiturientId) {
