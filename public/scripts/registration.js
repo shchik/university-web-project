@@ -3,7 +3,6 @@ function addAdmin() {
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirmPassword").value;
-  console.log("sddgs");
   if (password !== confirmPassword) return;
 
   $.ajax({
@@ -21,6 +20,50 @@ function addAdmin() {
   });
 }
 document.querySelector(".js-form-button").addEventListener("click", (event) => {
-  event.preventDefault();
-  addAdmin();
+  const email = document.getElementById("email").value;
+  const login = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  if (
+    !email ||
+    !login ||
+    !password ||
+    !confirmPassword ||
+    document
+      .querySelector(".password-message")
+      .classList.contains("error-message")
+  ) {
+    event.preventDefault();
+    alert("Please fill in all required fields");
+  } else {
+    event.preventDefault();
+    addAdmin();
+  }
 });
+
+document
+  .querySelector(".js-confirm-password-input")
+  .addEventListener("input", () => {
+    if (
+      document.getElementById("confirmPassword").value ===
+      document.getElementById("password").value
+    ) {
+      document
+        .querySelector(".password-message")
+        .classList.add("password-match");
+      document
+        .querySelector(".password-message")
+        .classList.remove("error-message");
+      document.querySelector(".password-message").innerHTML =
+        "Passwords match!";
+    } else {
+      document
+        .querySelector(".password-message")
+        .classList.add("error-message");
+      document
+        .querySelector(".password-message")
+        .classList.remove("password-match");
+      document.querySelector(".password-message").innerHTML =
+        "Passwords dont match!";
+    }
+  });

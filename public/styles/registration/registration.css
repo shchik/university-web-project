@@ -103,3 +103,16 @@ body {
 .register-link a:hover {
   text-decoration: underline;
 }
+.password-message {
+  font-size: 12px;
+  margin: -30px 0px 25px 0px;
+  opacity: 0;
+}
+.error-message {
+  color: red;
+  opacity: 1;
+}
+.password-match {
+  color: green;
+  opacity: 1;
+}

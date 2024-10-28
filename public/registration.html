@@ -11,26 +11,46 @@
     <form class="form">
       <h1 class="form-title">Registration</h1>
       <div class="form-group">
-        <input type="text" id="email" class="form-input" placeholder="" />
+        <input
+          type="email"
+          id="email"
+          class="form-input"
+          placeholder=""
+          required
+        />
         <label class="form__label">Email</label>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-input" id="login" placeholder="" />
-        <label class="form__label">Login</label>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-input" id="password" placeholder="" />
-        <label class="form__label">Password</label>
       </div>
       <div class="form-group">
         <input
           type="text"
           class="form-input"
+          id="login"
+          placeholder=""
+          required
+        />
+        <label class="form__label">Login</label>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-input"
+          id="password"
+          placeholder=""
+          required
+        />
+        <label class="form__label">Password</label>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-input js-confirm-password-input"
           id="confirmPassword"
           placeholder=""
+          required
         />
         <label class="form__label">Confirm Password</label>
       </div>
+      <div class="password-message">Password doesnt confirm!</div>
       <button class="form__button js-form-button">Register</button>
       <div class="register-link">
         <p>
