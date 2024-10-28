@@ -19,12 +19,31 @@ function addAdmin() {
   });
 }
 
-document.querySelector(".js-form-button").addEventListener("click", (event) => {
+async function getAdmins(admins) {
+  await $.ajax({
+    url: "../../../public/phpScripts/readAdmins.php",
+    dataType: "json",
+    type: "GET",
+    success: (response) => {
+      Object.keys(response).forEach((item) => {
+        admins.push(response[item]);
+      });
+
+      $("#result").text(admins.join(", "));
+    },
+
+    error: (xhr, status, error) => {
+      console.error("Ошибка:", error);
+    },
+  });
+  return admins;
+}
+
+async function checkValidity() {
   const email = document.getElementById("email").value;
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirmPassword").value;
-  event.preventDefault();
   if (
     !email ||
     !login ||
@@ -40,9 +59,30 @@ document.querySelector(".js-form-button").addEventListener("click", (event) => {
   } else if (!isEmailValid(document.querySelector(".js-email-class").value)) {
     alert("Please fill right email");
   } else {
-    addAdmin();
+    let admins = [];
+    admins = await getAdmins(admins);
+    if (isEmailUnique(admins, email, login)) {
+      addAdmin();
+    }
   }
+}
+
+document.querySelector(".js-form-button").addEventListener("click", (event) => {
+  event.preventDefault();
+  checkValidity();
 });
+
+function isEmailUnique(admins, email, login) {
+  let isUnique = true;
+  admins.forEach((admin) => {
+    if (email === admin.email || login === admin.login) {
+      alert("This email or login already have account");
+      isUnique = false;
+      return;
+    }
+  });
+  return isUnique;
+}
 
 const EMAIL_REGEXP =
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
