@@ -3,7 +3,6 @@ function addAdmin() {
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirmPassword").value;
-  if (password !== confirmPassword) return;
 
   $.ajax({
     url: "../../../public/phpScripts/addAdmin.php",
@@ -19,11 +18,13 @@ function addAdmin() {
     },
   });
 }
+
 document.querySelector(".js-form-button").addEventListener("click", (event) => {
   const email = document.getElementById("email").value;
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirmPassword").value;
+  event.preventDefault();
   if (
     !email ||
     !login ||
@@ -33,13 +34,31 @@ document.querySelector(".js-form-button").addEventListener("click", (event) => {
       .querySelector(".password-message")
       .classList.contains("error-message")
   ) {
-    event.preventDefault();
     alert("Please fill in all required fields");
+  } else if (email.length < 4 || login.length < 4 || password.length < 4) {
+    alert("Please fill more letters in required fields");
+  } else if (!isEmailValid(document.querySelector(".js-email-class").value)) {
+    alert("Please fill right email");
   } else {
-    event.preventDefault();
     addAdmin();
   }
 });
+
+const EMAIL_REGEXP =
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+document.querySelector(".js-email-class").addEventListener("input", () => {
+  const email = document.getElementById("email").value;
+  if (isEmailValid(email)) {
+    document.querySelector(".js-email-class").style.borderColor = "green";
+  } else {
+    document.querySelector(".js-email-class").style.borderColor = "red";
+  }
+});
+
+function isEmailValid(value) {
+  return EMAIL_REGEXP.test(value);
+}
 
 document
   .querySelector(".js-confirm-password-input")
