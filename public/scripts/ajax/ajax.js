@@ -1,4 +1,3 @@
-import { error } from "console";
 import { abiturients } from "../data/abiturients.js";
 import { renderSpecialityPage } from "../speciality.js";
 
