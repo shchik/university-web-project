@@ -11,7 +11,7 @@ function enterAccount() {
     type: "POST",
     success: (response) => {
       if (response.status === "success") {
-        window.location.href = "index.html";
+        window.location.href = "index1.html";
       } else {
         document
           .querySelector(".login-message")

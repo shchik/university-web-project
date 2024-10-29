@@ -14,7 +14,7 @@ function addAdmin() {
     type: "POST",
     success: (response) => {
       console.log("dsgdsg");
-      window.location.href = "index.html";
+      window.location.href = "index1.html";
     },
   });
 }
