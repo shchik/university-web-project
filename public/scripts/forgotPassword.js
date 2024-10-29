@@ -15,7 +15,8 @@ document.querySelector(".button-message").addEventListener("click", () => {
       },
       type: "POST",
       success: (response) => {
-        console.log("Ответ сервера:", response);
+        const result = JSON.parse(response);
+        alert(result.message);
       },
       error: (xhr, status, error) => {
         console.error("Ошибка:", error);
