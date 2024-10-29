@@ -84,21 +84,21 @@ export let faculties = [
       "Адрес: 220013, г. Минск, ул. Я. Коласа, 12, учебный корпус №8, 220013, г. Минск, Республика Беларусь",
     specialities: [
       {
-        image: "",
+        image: "images/speciality-images/ATF-1.jpg",
         name: "АТМТК(Аэ)",
         fullname:
           "Автомобили, тракторы, мобильные и технологические комплексы Автомобилестроение (электроника)",
         placesCount: 25,
       },
       {
-        image: "",
+        image: "images/speciality-images/ATF-2.jpg",
         name: "АТМТК(ЭИТС)",
         fullname:
           "Автомобили, тракторы, мобильные и технологические комплексы Электрические и автономные транспортные средства",
         placesCount: 40,
       },
       {
-        image: "",
+        image: "images/speciality-images/ATF-3.jpg",
         name: "АТМТК(ГиЛА)",
         fullname:
           "Автомобили, тракторы, мобильные и технологические комплексы Грузовые и легковые автомобили",
@@ -115,22 +115,21 @@ export let faculties = [
       "Адрес: Республика Беларусь, 220013, г. Минск, пр. Независимости 65/2, учебный корпус № 2",
     specialities: [
       {
-        image: "",
-        name: "ПОИТ",
-        fullname: "Программное обеспечение информационных технологий",
+        image: "images/speciality-images/EF-1.jfif",
+        name: "ПТТ",
+        fullname: "Промышленная теплоэнергетика и теплотехника",
         placesCount: 30,
       },
       {
-        image: "",
-        name: "ИСИТ",
-        fullname:
-          "Информационные системы и технологии в представлении и обработки информации",
+        image: "images/speciality-images/EF-1.jfif",
+        name: "ТЭС",
+        fullname: "Тепловые электрические станции",
         placesCount: 30,
       },
       {
-        image: "",
-        name: "САПР",
-        fullname: "Информационные системы и технологии на заводе",
+        image: "images/speciality-images/EF-1.jfif",
+        name: "ЭС",
+        fullname: "Электрические станции",
         placesCount: 30,
       },
     ],
