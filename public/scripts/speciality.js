@@ -40,6 +40,16 @@ export function renderSpecialityPage() {
     `;
   });
   document.querySelector(".js-main-class").innerHTML = specialitySummaryHTML;
+  // document
+  //   .querySelector(".js-logout-link")
+  //   .addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     history.pushState(null, null, location.href);
+  //     event.target.closest("a").href;
+  //     window.onpopstate = function (event) {
+  //       history.go(1);
+  //     };
+  //   });
   makeAbiturientsArray();
   deleteButton();
   editButton();
